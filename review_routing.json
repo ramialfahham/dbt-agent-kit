@@ -1,0 +1,20 @@
+{
+  "_comment": "Which reviewers are REQUIRED for which staged files. 'always' run on every substantive commit. Patterns use fnmatch (a single * also matches across /). This is the plugin default; drop a copy at .claude/review_routing.json in a project to customise it there. Commits whose files ALL match artifact_only are exempt (bookkeeping), except anything in artifact_only_never.",
+  "always": ["scope-auditor"],
+  "paths": {
+    "*.sql": ["analytics-engineer-reviewer"],
+    "*.csv": ["analytics-engineer-reviewer"],
+    "*dbt_project.yml": ["analytics-engineer-reviewer"],
+    "*schema.yml": ["analytics-engineer-reviewer"],
+    "scripts/*": ["cto-reviewer"],
+    "tests/*": ["cto-reviewer"],
+    ".github/workflows/*": ["cto-reviewer"],
+    "requirements*.txt": ["cto-reviewer"],
+    "*hooks/*": ["cto-reviewer"],
+    "ingestion/*": ["data-engineer-reviewer"],
+    "extract/*": ["data-engineer-reviewer"],
+    "loaders/*": ["data-engineer-reviewer"]
+  },
+  "artifact_only": [".claude/task/*", ".claude/active_work.md"],
+  "artifact_only_never": [".claude/task/contract.md"]
+}

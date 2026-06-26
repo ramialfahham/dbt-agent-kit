@@ -1,0 +1,30 @@
+# Copied to .github/workflows/ci.yml by the setup-dbt-project command, which fills
+# in the warehouse-specific bits (env vars + any auth step) for your warehouse.
+# Runs dbt build (models + tests) on every PR and blocks the merge on failure —
+# the first safety net, ahead of review.
+name: dbt CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DBT_PROFILES_DIR: ${{ github.workspace }}
+      # the setup command adds your warehouse's connection env vars here,
+      # each reading from a GitHub Actions secret, e.g.:
+      #   BigQuery : DBT_PROJECT / DBT_KEYFILE   Snowflake: SNOWFLAKE_*
+      #   Postgres : PG*                          DuckDB   : (none)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      # the setup command adds a warehouse auth step here only if one is needed
+      # (e.g. BigQuery writes the service-account JSON from a secret to a file)
+      - run: dbt deps
+      - name: Build + test
+        run: dbt build --target ci

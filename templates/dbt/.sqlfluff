@@ -1,0 +1,22 @@
+[sqlfluff]
+templater = dbt
+# the setup command sets the dialect for your warehouse:
+# bigquery | snowflake | postgres | duckdb | redshift | databricks | ansi
+dialect = ansi
+max_line_length = 120
+# ST06 (select target ordering) and RF04 (keywords as identifiers) are noisy on
+# real dbt models; drop them if you disagree.
+exclude_rules = ST06, RF04
+
+[sqlfluff:indentation]
+tab_space_size = 4
+indent_unit = space
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.identifiers]
+extended_capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.functions]
+extended_capitalisation_policy = lower

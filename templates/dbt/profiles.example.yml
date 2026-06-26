@@ -1,0 +1,45 @@
+# Copy to ~/.dbt/profiles.yml (or set DBT_PROFILES_DIR). Keep the block for YOUR
+# warehouse renamed to `dev` (and add a `ci` copy), delete the rest. Uses env
+# vars so the same file works locally and in CI — no secrets in git.
+__PROJECT_NAME__:
+  target: dev
+  outputs:
+
+    # ---- BigQuery ----
+    bigquery_dev:
+      type: bigquery
+      method: service-account
+      project: "{{ env_var('DBT_PROJECT') }}"
+      dataset: "{{ env_var('DBT_DATASET', 'dbt_dev') }}"
+      keyfile: "{{ env_var('DBT_KEYFILE') }}"
+      threads: 4
+      location: EU
+
+    # ---- Snowflake ----
+    snowflake_dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'TRANSFORMER') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      schema: dbt_dev
+      threads: 4
+
+    # ---- Postgres (also Supabase / Neon / Redshift-ish) ----
+    postgres_dev:
+      type: postgres
+      host: "{{ env_var('PGHOST', 'localhost') }}"
+      port: 5432
+      user: "{{ env_var('PGUSER') }}"
+      password: "{{ env_var('PGPASSWORD') }}"
+      dbname: "{{ env_var('PGDATABASE') }}"
+      schema: dbt_dev
+      threads: 4
+
+    # ---- DuckDB (local file, no credentials) ----
+    duckdb_dev:
+      type: duckdb
+      path: "{{ env_var('DUCKDB_PATH', 'dev.duckdb') }}"
+      threads: 4

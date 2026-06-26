@@ -1,0 +1,31 @@
+name: '__PROJECT_NAME__'
+version: '1.0.0'
+config-version: 2
+
+profile: '__PROJECT_NAME__'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+analysis-paths: ["analyses"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# One direction only: staging -> base -> core -> intermediate -> marts.
+# See docs/layering.md for what belongs in each layer.
+models:
+  __PROJECT_NAME__:
+    staging:
+      +materialized: view
+    base:
+      +materialized: view
+    core:
+      +materialized: table
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

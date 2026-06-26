@@ -1,0 +1,5 @@
+# The setup-dbt-project command adds your warehouse's dbt adapter here, e.g.:
+#   dbt-bigquery>=1.7 | dbt-snowflake>=1.7 | dbt-postgres>=1.7 | dbt-duckdb>=1.7
+#   dbt-redshift>=1.7 | dbt-databricks>=1.7  (or any other dbt adapter)
+sqlfluff>=3.0
+sqlfluff-templater-dbt>=3.0

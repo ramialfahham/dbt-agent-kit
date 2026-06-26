@@ -1,0 +1,13 @@
+{
+  "name": "rami-guardrails",
+  "owner": {
+    "name": "Rami Al-Fahham"
+  },
+  "plugins": [
+    {
+      "name": "claude-agent-guardrails",
+      "source": ".",
+      "description": "Reusable agent guardrails + dbt project scaffolder."
+    }
+  ]
+}

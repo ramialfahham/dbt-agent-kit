@@ -1,0 +1,11 @@
+target/
+dbt_packages/
+logs/
+.user.yml
+.venv/
+__pycache__/
+
+# never commit warehouse credentials
+gcp-key.json
+*.credentials.json
+profiles.yml
