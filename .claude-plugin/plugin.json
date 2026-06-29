@@ -1,8 +1,5 @@
 {
-  "name": "claude-agent-guardrails",
-  "description": "Reusable agent guardrails for data/dbt projects: session handover, plan-before-code gates, pre-push checks, and a blinded reviewer cycle (scope, analytics-engineer, CTO, data-engineer). Includes a command to scaffold a standard dbt project.",
-  "version": "0.1.0",
-  "author": {
-    "name": "Rami Al-Fahham"
-  }
+  "name": "dbt-agent-kit",
+  "description": "Agent guardrails + a dbt project starter for Claude Code: session handover, plan-before-code gates, pre-push checks, a blinded reviewer cycle (scope, analytics-engineer, CTO, data-engineer), and a command to scaffold a standard dbt project.",
+  "version": "0.1.0"
 }

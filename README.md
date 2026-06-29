@@ -1,4 +1,4 @@
-# claude-agent-guardrails
+# dbt-agent-kit
 
 A reusable Claude Code plugin for my data/dbt projects. Install it once into any
 project and get the same guardrails everywhere — no copying, no reinventing.
@@ -28,10 +28,10 @@ project and get the same guardrails everywhere — no copying, no reinventing.
 
 ```bash
 # once per machine
-/plugin marketplace add ramialfahham/claude-agent-guardrails
+/plugin marketplace add ramialfahham/dbt-agent-kit
 
 # in any project
-/plugin install claude-agent-guardrails@rami-guardrails
+/plugin install dbt-agent-kit@dbt-agent-kit
 ```
 
 It's public, so teammates run the same two commands. (Or clone it and point

@@ -24,7 +24,7 @@ The essence:
 
 ## Guardrails
 
-This repo uses the [`claude-agent-guardrails`](https://github.com/ramialfahham/claude-agent-guardrails)
+This repo uses the [`dbt-agent-kit`](https://github.com/ramialfahham/dbt-agent-kit)
 plugin: session handover, plan-back gate, pre-push checks, blinded reviewers, and a
 blocking review gate. Task contracts live in `.claude/task/`, review routing in
 `.claude/review_routing.json`. The session handover is `.claude/active_work.md` — keep it

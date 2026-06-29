@@ -1,13 +1,13 @@
 {
-  "name": "rami-guardrails",
+  "name": "dbt-agent-kit",
   "owner": {
-    "name": "Rami Al-Fahham"
+    "name": "dbt-agent-kit"
   },
   "plugins": [
     {
-      "name": "claude-agent-guardrails",
+      "name": "dbt-agent-kit",
       "source": ".",
-      "description": "Reusable agent guardrails + dbt project scaffolder."
+      "description": "Agent guardrails + a dbt project starter for Claude Code."
     }
   ]
 }
