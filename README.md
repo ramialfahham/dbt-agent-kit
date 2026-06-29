@@ -10,6 +10,7 @@ project and get the same guardrails everywhere — no copying, no reinventing.
 - Makes the agent restate the task and get your OK before writing code
 - Re-checks the plan right after you approve it
 - `/validate` runs CI's checks locally before you push; `/status` shows branch, PRs, CI + the handover
+- Enforces branch discipline: hard-blocks committing/pushing on `main`, `gh pr merge`, and `--amend`/`--no-verify`
 
 **2. Reviews the work before a commit**
 - Four reviewer roles: scope, analytics-engineer (dbt), CTO (tooling/CI), data-engineer (ingestion)

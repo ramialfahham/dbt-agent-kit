@@ -47,6 +47,9 @@ refspec (`git push origin <branch>`), open a PR, wait for CI + the user's approv
 `gh pr list --state open`: if the work is a hard dependency of an open PR and a separate
 branch buys nothing, commit to that branch instead.
 
+This is **hook-enforced**: a commit or push while on `main`/`master`, `gh pr merge`, and
+`git commit --amend`/`--no-verify` are all hard-blocked.
+
 ## 4. Quality
 
 - **No hacky solutions.** If the clean way takes longer, say so — don't ship a workaround

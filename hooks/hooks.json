@@ -20,6 +20,12 @@
           {
             "type": "command",
             "shell": "bash",
+            "command": "python \"${CLAUDE_PLUGIN_ROOT}/hooks/branch_discipline.py\"",
+            "statusMessage": "Branch discipline check..."
+          },
+          {
+            "type": "command",
+            "shell": "bash",
             "command": "python \"${CLAUDE_PLUGIN_ROOT}/hooks/commit_review_gate.py\" \"${CLAUDE_PLUGIN_ROOT}\"",
             "statusMessage": "Review gate: checking the change was reviewed..."
           },
